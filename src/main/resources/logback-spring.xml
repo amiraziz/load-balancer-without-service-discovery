@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration>
+
+<configuration scan="true">
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %class{36}:%L - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="app" level="WARN">
+        <appender-ref ref="STDOUT" />
+    </logger>
+
+    <logger name="javax.activation" level="WARN"/>
+    <logger name="javax.mail" level="WARN"/>
+    <logger name="javax.management.remote" level="WARN"/>
+    <logger name="javax.xml.bind" level="WARN"/>
+    <logger name="jdk.event.security" level="INFO"/>
+    <logger name="ch.qos.logback" level="WARN"/>
+    <logger name="com.ryantenney" level="WARN"/>
+    <logger name="com.sun" level="WARN"/>
+    <logger name="com.zaxxer" level="WARN"/>
+    <logger name="io.undertow" level="WARN"/>
+    <logger name="io.undertow.websockets.jsr" level="ERROR"/>
+    <logger name="io.lettuce" level="INFO"/>
+    <logger name="io.netty" level="INFO"/>
+    <logger name="org.ehcache" level="WARN"/>
+    <logger name="org.apache" level="WARN"/>
+    <logger name="org.apache.catalina.startup.DigesterFactory" level="OFF"/>
+    <logger name="org.bson" level="WARN"/>
+    <logger name="org.hibernate.validator" level="WARN"/>
+    <logger name="org.hibernate" level="WARN"/>
+    <logger name="org.hibernate.ejb.HibernatePersistence" level="OFF"/>
+    <logger name="org.postgresql" level="WARN"/>
+    <logger name="org.springframework" level="WARN"/>
+    <logger name="org.springframework.web" level="WARN"/>
+    <logger name="org.springframework.cache" level="WARN"/>
+    <logger name="org.thymeleaf" level="WARN"/>
+    <logger name="org.xnio" level="WARN"/>
+    <logger name="org.zalando.logbook" level="INFO"/>
+    <logger name="springfox" level="WARN"/>
+    <logger name="sun.rmi" level="WARN"/>
+    <logger name="liquibase" level="WARN"/>
+    <logger name="LiquibaseSchemaResolver" level="INFO"/>
+    <logger name="springfox.documentation.schema.property" level="ERROR"/>
+    <logger name="sun.rmi.transport" level="WARN"/>
+
+   <!-- <logger name="org.apache.ibatis.level" level="FINE"/>
+    <logger name="org.camunda.bpm.engine.impl.persistence.level" level="FINE"/>
+    <logger name="org.camunda.bpm.engine.persistence" level="DEBUG" />
+    <logger name="org.camunda.bpm.engine.impl.persistence.entity" level="DEBUG" />
+    <logger name="org.camunda.bpm.engine.impl.history.event" level="DEBUG" />
+    <logger name="org.camunda.bpm.engine.impl.batch.history" level="DEBUG" />
+    <logger name="org.camunda.bpm.engine.impl.batch" level="DEBUG" />
+    <logger name="org.camunda.bpm.engine.impl.cmmn.entity.repository" level="DEBUG" />
+    <logger name="org.camunda.bpm.engine.impl.cmmn.entity.runtime" level="DEBUG" />
+    <logger name="org.camunda.bpm.engine.impl.dmn.entity.repository" level="DEBUG" />
+    <logger name="org.camunda.bpm.engine.history" level="DEBUG" />-->
+
+    <!-- https://logback.qos.ch/manual/configuration.html#shutdownHook and https://jira.qos.ch/browse/LOGBACK-1090 -->
+    <shutdownHook class="ch.qos.logback.core.hook.DelayingShutdownHook"/>
+
+    <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+        <resetJUL>true</resetJUL>
+    </contextListener>
+
+</configuration>
